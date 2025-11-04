@@ -70,6 +70,11 @@ RUN tar -xf oc.tar
 RUN chmod +x oc && mv oc /usr/local/bin
 RUN chgrp -R 0 /usr/local/bin/oc && \
     chmod -R g+rwX /usr/local/bin/oc
+
+# talosctl
+RUN curl -Lo /usr/local/bin/talosctl https://github.com/siderolabs/talos/releases/download/v1.11.3/talosctl-linux-amd64
+RUN chmod +x /usr/local/bin/talosctl
+
 # user
 RUN addgroup -S cooltainer && adduser -S cooltainer -G cooltainer -u 1234
 ENV HOME=/home/cooltainer
