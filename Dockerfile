@@ -41,6 +41,7 @@ RUN apk add --no-cache \
     openssh \
     net-tools \
     netcat-openbsd \
+    nmap \
     freeradius-utils \
     tzdata \
     vim \
