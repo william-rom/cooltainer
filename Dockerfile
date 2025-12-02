@@ -76,6 +76,13 @@ RUN chgrp -R 0 /usr/local/bin/oc && \
 RUN curl -Lo /usr/local/bin/talosctl https://github.com/siderolabs/talos/releases/download/v1.11.3/talosctl-linux-amd64
 RUN chmod +x /usr/local/bin/talosctl
 
+# k9s
+RUN curl -Lo k9s.tar.gz https://github.com/derailed/k9s/releases/latest/download/k9s_Linux_amd64.tar.gz && \
+    tar -xzf k9s.tar.gz k9s && \
+    mv k9s /usr/local/bin/k9s && \
+    chmod +x /usr/local/bin/k9s && \
+    rm k9s.tar.gz
+
 # user
 RUN addgroup -S cooltainer && adduser -S cooltainer -G cooltainer -u 1234
 ENV HOME=/home/cooltainer
